@@ -8,13 +8,9 @@ public class PlayerController : MonoBehaviour
     public float maxMoveSpeed = 10;
     public float smoothTime = 0.3f;
     public float minDistance = 2;
-    Vector2 currentVelocity;
     public float turnSpeed = 45; // degrees per second
 
-    void Start()
-    {
-        
-    }
+    Vector2 currentVelocity;
 
     void Update()
     {
