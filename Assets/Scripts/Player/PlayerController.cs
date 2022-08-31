@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,7 +11,16 @@ public class PlayerController : MonoBehaviour
     public float minDistance = 2;
     public float turnSpeed = 45; // degrees per second
 
+    [Header("Camera")]
+    public CinemachineVirtualCamera vCam;
+    public float zoomSensitivity;
+
     Vector2 currentVelocity;
+
+    private void Start()
+    {
+        vCam.m_Lens.OrthographicSize = 7.5f;
+    }
 
     void Update()
     {
@@ -24,5 +34,8 @@ public class PlayerController : MonoBehaviour
         float angle = Vector2.SignedAngle(Vector2.up, direction);
         Vector3 targetRotation = new Vector3(0, 0, angle);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(targetRotation), turnSpeed * Time.deltaTime);
+
+        vCam.m_Lens.OrthographicSize += Input.GetAxis("Mouse ScrollWheel");
+        vCam.m_Lens.OrthographicSize = Mathf.Clamp(vCam.m_Lens.OrthographicSize, 4.5f, 10f);
     }
 }
