@@ -97,7 +97,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -117,6 +117,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 17.5
   rb: {fileID: 6516159449416203464}
+  impactParticles: {fileID: 1409652694274111625, guid: c65155f973dbaa34692b03880a2c383b, type: 3}
+  lifetime: 2
   isHoming: 0
   homingBehaviour: {fileID: 0}
 --- !u!50 &6516159449416203464

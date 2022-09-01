@@ -9,16 +9,12 @@ public class HomingBehaviour : MonoBehaviour
     public float projectileSpeed;
     public Rigidbody2D rb;
 
-    private void Update()
-    {
-        print(target);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             target = collision.gameObject.transform;
+            print(target);
         }
     }
 

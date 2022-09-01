@@ -7,11 +7,19 @@ public class ProjectileBehaviour : MonoBehaviour
     [Header("Basic Projectile")]
     public float projectileSpeed;
     public Rigidbody2D rb;
+    public ParticleSystem impactParticles;
+    public float lifetime;
 
     [Header("Homing Projectile")]
     public bool isHoming;
     public HomingBehaviour homingBehaviour;
 
+    private void Start()
+    {
+        rb.velocity = rb.transform.up * projectileSpeed;
+
+        Invoke("Destroy", lifetime);
+    }
 
     private void Update()
     {
@@ -21,8 +29,19 @@ public class ProjectileBehaviour : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        rb.velocity = rb.transform.up * projectileSpeed;
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            ContactPoint2D contact = collision.contacts[0];
+            Instantiate(impactParticles, contact.point, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
+
+    public void Destroy()
+    {
+        Instantiate(impactParticles, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
