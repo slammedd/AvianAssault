@@ -12,6 +12,7 @@ public class PrimaryWeapon : MonoBehaviour
     public TextMeshProUGUI ammoText;
 
     private int ammo;
+    private float firingTimer;
 
     private void Start()
     {
@@ -21,9 +22,18 @@ public class PrimaryWeapon : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && ammo >0)
+        if(firingTimer >= 0)
         {
-            Shoot();
+            firingTimer -= Time.deltaTime;
+        }
+
+        if (Input.GetMouseButton(0) && ammo > 0)
+        {
+            if (firingTimer < 0)
+            {
+                Shoot();
+                firingTimer += weaponType.fireDelay;
+            }
         }
 
         ammoText.text = "Ammo  " + ammo.ToString();

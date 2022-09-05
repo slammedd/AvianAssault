@@ -6,4 +6,5 @@ using UnityEngine;
 public class BasePrimaryWeapon : ScriptableObject
 {
     public GameObject projectileType;
+    public float fireDelay;
 }
