@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEditor.ShaderGraph;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,13 +11,12 @@ public class PlayerController : MonoBehaviour
     public float smoothTime = 0.3f;
     public float minDistance = 2;
     public float turnSpeed = 45; // degrees per second
-
     [Header("Camera")]
     public CinemachineVirtualCamera vCam;
     public float zoomSensitivity;
 
-    Vector2 currentVelocity;
-
+    private Vector2 currentVelocity;
+    
     private void Start()
     {
         vCam.m_Lens.OrthographicSize = 7.5f;
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
         // Offsets the target position so that the object keeps its distance.
         mousePosition += ((Vector2)transform.position - mousePosition).normalized * minDistance;
         transform.position = Vector2.SmoothDamp(transform.position, mousePosition, ref currentVelocity, smoothTime, maxMoveSpeed);
-       
+
         Vector3 mousePosition3d = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = mousePosition3d - transform.position;
         float angle = Vector2.SignedAngle(Vector2.up, direction);
