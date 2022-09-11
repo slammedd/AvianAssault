@@ -7,35 +7,58 @@ using UnityEditor.ShaderGraph;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Stats")]
-    public float maxMoveSpeed = 10;
-    public float smoothTime = 0.3f;
-    public float minDistance = 2;
-    public float turnSpeed = 45; // degrees per second
+    public Rigidbody2D rb;
+    public ParticleSystem upThrusterParticles;
+    public Transform leftBooster;
+    public Transform rightBooster;
+    public float upThrust;
+    public float turnThrust;
+    public float maxSpeed;
+
     [Header("Camera")]
     public CinemachineVirtualCamera vCam;
     public float zoomSensitivity;
-
-    private Vector2 currentVelocity;
     
     private void Start()
     {
         vCam.m_Lens.OrthographicSize = 7.5f;
     }
 
-    void Update()
+    private void Update()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // Offsets the target position so that the object keeps its distance.
-        mousePosition += ((Vector2)transform.position - mousePosition).normalized * minDistance;
-        transform.position = Vector2.SmoothDamp(transform.position, mousePosition, ref currentVelocity, smoothTime, maxMoveSpeed);
+        if (Input.GetKey(KeyCode.W))
+        {
+            MoveUpwards();
+            upThrusterParticles.Play();
+        }
 
-        Vector3 mousePosition3d = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = mousePosition3d - transform.position;
-        float angle = Vector2.SignedAngle(Vector2.up, direction);
-        Vector3 targetRotation = new Vector3(0, 0, angle);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(targetRotation), turnSpeed * Time.deltaTime);
+        else upThrusterParticles.Stop();
 
-        vCam.m_Lens.OrthographicSize += Input.GetAxis("Mouse ScrollWheel");
-        vCam.m_Lens.OrthographicSize = Mathf.Clamp(vCam.m_Lens.OrthographicSize, 4.5f, 10f);
+        if (Input.GetKey(KeyCode.A))
+        {
+            MoveLeft();
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            MoveRight();
+        }
+
+        rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
+    }
+
+    private void MoveUpwards()
+    {
+        rb.AddForce(transform.up * upThrust * Time.deltaTime);
+    }
+
+    private void MoveLeft()
+    {
+        rb.AddForceAtPosition(-transform.right * turnThrust * Time.deltaTime, leftBooster.position);
+    }
+
+    private void MoveRight()
+    {
+        rb.AddForceAtPosition(transform.right * turnThrust * Time.deltaTime, rightBooster.position);
     }
 }
