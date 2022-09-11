@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [Header("Player Stats")]
     public Rigidbody2D rb;
     public ParticleSystem upThrusterParticles;
+    public ParticleSystem rightThrusterParticles;
+    public ParticleSystem leftThrusterParticles;
     public Transform leftBooster;
     public Transform rightBooster;
     public float upThrust;
@@ -37,12 +39,26 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             MoveLeft();
+
+            if (!rightThrusterParticles.isPlaying)
+            {
+                rightThrusterParticles.Play();
+            }
         }
+
+        else rightThrusterParticles.Stop();
 
         if (Input.GetKey(KeyCode.D))
         {
             MoveRight();
+
+            if (!leftThrusterParticles.isPlaying)
+            {
+                leftThrusterParticles.Play();
+            }      
         }
+
+        else leftThrusterParticles.Stop();
 
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
     }
