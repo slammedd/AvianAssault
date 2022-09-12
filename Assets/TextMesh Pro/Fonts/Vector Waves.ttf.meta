@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4afc85c20ebeb5d4b98dbd924ed88d9c
+guid: 990c2e6f0c225fe4d8e8c3bb4e64dd7b
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Karmatic Arcade
+  - Vector Waves
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

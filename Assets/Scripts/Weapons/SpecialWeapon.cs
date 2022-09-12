@@ -25,7 +25,7 @@ public class SpecialWeapon : MonoBehaviour
             Shoot();
         }
 
-        specialAmmoText.text = "Ammo  " + ammo.ToString();
+        specialAmmoText.text = ammo.ToString();
     }
 
     public void Shoot()

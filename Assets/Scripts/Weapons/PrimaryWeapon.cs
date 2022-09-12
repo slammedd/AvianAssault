@@ -36,7 +36,7 @@ public class PrimaryWeapon : MonoBehaviour
             }
         }
 
-        ammoText.text = "Ammo  " + ammo.ToString();
+        ammoText.text = ammo.ToString();
     }
 
     public void Shoot()
