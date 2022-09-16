@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     public CinemachineVirtualCamera vCam;
     public float zoomSensitivity;
 
+    private float steamCV;
+
     private void Start()
     {
         vCam.m_Lens.OrthographicSize = 7.5f;
@@ -121,5 +123,5 @@ public class PlayerController : MonoBehaviour
         {
             heart1Anim.SetBool("isLost", true);
         }
-    }
+    } 
 }
