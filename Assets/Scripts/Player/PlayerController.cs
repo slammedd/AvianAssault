@@ -140,6 +140,7 @@ public class PlayerController : MonoBehaviour
         CameraShake.instance.ShakeCamera(3f, 0.75f);
         deathParticles.Play();
         transform.DOScale(0, 1f);
+        StartSlowMotion(2f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
