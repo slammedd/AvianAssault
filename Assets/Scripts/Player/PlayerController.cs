@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem upThrusterParticles;
     public ParticleSystem rightThrusterParticles;
     public ParticleSystem leftThrusterParticles;
+    public ParticleSystem deathParticles;
     public Transform leftBooster;
     public Transform rightBooster;
     public Animator heart1Anim;
@@ -122,6 +123,14 @@ public class PlayerController : MonoBehaviour
         if (health == 0)
         {
             heart1Anim.SetBool("isLost", true);
+            Die();
         }
     } 
+
+    public void Die()
+    {
+        CameraShake.instance.ShakeCamera(3f, 0.75f);
+        deathParticles.Play();
+        transform.DOScale(0, 1f);
+    }
 }
