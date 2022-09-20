@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem rightThrusterParticles;
     public ParticleSystem leftThrusterParticles;
     public ParticleSystem deathParticles;
+    public ParticleSystem impactParticles;
     public Transform leftBooster;
     public Transform rightBooster;
     public Animator heart1Anim;
@@ -24,13 +25,12 @@ public class PlayerController : MonoBehaviour
     public float upThrust;
     public float turnThrust;
     public float maxSpeed;
+    [Range(1, 10)] public float impactDamageSpeed;
     private int health = 5;
 
     [Header("Camera")]
     public CinemachineVirtualCamera vCam;
     public float zoomSensitivity;
-
-    private float steamCV;
 
     private void Start()
     {
@@ -132,5 +132,15 @@ public class PlayerController : MonoBehaviour
         CameraShake.instance.ShakeCamera(3f, 0.75f);
         deathParticles.Play();
         transform.DOScale(0, 1f);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle") && rb.velocity.sqrMagnitude >= impactDamageSpeed)
+        {
+            ContactPoint2D contact = collision.contacts[0];
+            Instantiate(impactParticles, contact.point, Quaternion.identity);
+            TakeDamage(1);
+        }
     }
 }

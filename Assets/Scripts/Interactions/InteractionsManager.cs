@@ -13,6 +13,7 @@ public class InteractionsManager : MonoBehaviour
     public int groupsPerSpawn;
     public float minTimeBetweenSpawn;
     public float maxTimeBetweenSpawn;
+    public int asteroidHealth;
 
     private float xPos;
     private float yPos;

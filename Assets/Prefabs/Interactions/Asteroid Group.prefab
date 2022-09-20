@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2900360620133850826}
   - component: {fileID: 2900360620133850831}
   - component: {fileID: 4122001427534634944}
+  - component: {fileID: 7712307328292027865}
   m_Layer: 0
   m_Name: Asteroid 1
   m_TagString: Obstacle
@@ -99,7 +100,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -139,6 +140,19 @@ MonoBehaviour:
   scale: 2.25
   scaleSpeed: 3
   fadeSpeed: 500
+--- !u!114 &7712307328292027865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2900360620133850824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaee471aab6e46241819684c12fee240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleSpeed: 0.75
 --- !u!1 &2900360620623836588
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +201,7 @@ GameObject:
   - component: {fileID: 2900360620626849538}
   - component: {fileID: 2900360620626849543}
   - component: {fileID: 4660225061261512970}
+  - component: {fileID: 8170233793129097624}
   m_Layer: 0
   m_Name: Asteroid 3
   m_TagString: Obstacle
@@ -273,7 +288,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -313,6 +328,19 @@ MonoBehaviour:
   scale: 2.25
   scaleSpeed: 3
   fadeSpeed: 500
+--- !u!114 &8170233793129097624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2900360620626849536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaee471aab6e46241819684c12fee240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleSpeed: 0.75
 --- !u!1 &2900360621372550979
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,6 +354,7 @@ GameObject:
   - component: {fileID: 2900360621372550981}
   - component: {fileID: 2900360621372550982}
   - component: {fileID: 165116735771459435}
+  - component: {fileID: 2546031421937311141}
   m_Layer: 0
   m_Name: Asteroid 4
   m_TagString: Obstacle
@@ -412,7 +441,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -452,6 +481,19 @@ MonoBehaviour:
   scale: 2.25
   scaleSpeed: 3
   fadeSpeed: 500
+--- !u!114 &2546031421937311141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2900360621372550979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaee471aab6e46241819684c12fee240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleSpeed: 0.75
 --- !u!1 &2900360622193376203
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +507,7 @@ GameObject:
   - component: {fileID: 2900360622193376205}
   - component: {fileID: 2900360622193376206}
   - component: {fileID: 5673189064066530557}
+  - component: {fileID: 1786811341156630673}
   m_Layer: 0
   m_Name: Asteroid 2
   m_TagString: Obstacle
@@ -551,7 +594,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -591,3 +634,16 @@ MonoBehaviour:
   scale: 2.25
   scaleSpeed: 3
   fadeSpeed: 500
+--- !u!114 &1786811341156630673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2900360622193376203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaee471aab6e46241819684c12fee240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleSpeed: 0.75
