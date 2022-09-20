@@ -1548,63 +1548,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &737640821
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1736521832}
-    m_Modifications:
-    - target: {fileID: 6327113898216685425, guid: 79b2a769afaac444db0bb8559c6477eb, type: 3}
-      propertyPath: m_Name
-      value: Death Explosion
-      objectReference: {fileID: 0}
-    - target: {fileID: 6327113898216685436, guid: 79b2a769afaac444db0bb8559c6477eb, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6327113898216685436, guid: 79b2a769afaac444db0bb8559c6477eb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6327113898216685436, guid: 79b2a769afaac444db0bb8559c6477eb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6327113898216685436, guid: 79b2a769afaac444db0bb8559c6477eb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6327113898216685436, guid: 79b2a769afaac444db0bb8559c6477eb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6327113898216685436, guid: 79b2a769afaac444db0bb8559c6477eb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6327113898216685436, guid: 79b2a769afaac444db0bb8559c6477eb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6327113898216685436, guid: 79b2a769afaac444db0bb8559c6477eb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6327113898216685436, guid: 79b2a769afaac444db0bb8559c6477eb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6327113898216685436, guid: 79b2a769afaac444db0bb8559c6477eb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6327113898216685436, guid: 79b2a769afaac444db0bb8559c6477eb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 79b2a769afaac444db0bb8559c6477eb, type: 3}
 --- !u!1 &747132081
 GameObject:
   m_ObjectHideFlags: 0
@@ -17591,7 +17534,7 @@ MonoBehaviour:
   upThrusterParticles: {fileID: 1521446988}
   rightThrusterParticles: {fileID: 961592214}
   leftThrusterParticles: {fileID: 1646048352}
-  deathParticles: {fileID: 2048474248}
+  deathParticles: {fileID: 6327113898216685439, guid: 79b2a769afaac444db0bb8559c6477eb, type: 3}
   impactParticles: {fileID: 1409652694274111625, guid: c65155f973dbaa34692b03880a2c383b, type: 3}
   leftBooster: {fileID: 660609083}
   rightBooster: {fileID: 512611896}
@@ -17600,6 +17543,8 @@ MonoBehaviour:
   heart3Anim: {fileID: 251662448}
   heart4Anim: {fileID: 412328870}
   heart5Anim: {fileID: 495546140}
+  leftTrail: {fileID: 1510326924}
+  rightTrail: {fileID: 1418416823}
   upThrust: 100
   turnThrust: 100
   maxSpeed: 10
@@ -17620,7 +17565,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1142902147}
-  - {fileID: 2048474246}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18164,16 +18108,6 @@ MonoBehaviour:
   m_AmplitudeGain: 0
   m_FrequencyGain: 5
   mNoiseOffsets: {x: 0, y: 0, z: 0}
---- !u!4 &2048474246 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6327113898216685436, guid: 79b2a769afaac444db0bb8559c6477eb, type: 3}
-  m_PrefabInstance: {fileID: 737640821}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &2048474248 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6327113898216685439, guid: 79b2a769afaac444db0bb8559c6477eb, type: 3}
-  m_PrefabInstance: {fileID: 737640821}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2131811561
 GameObject:
   m_ObjectHideFlags: 0

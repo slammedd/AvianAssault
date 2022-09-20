@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public Animator heart3Anim;
     public Animator heart4Anim;
     public Animator heart5Anim;
+    public GameObject leftTrail;
+    public GameObject rightTrail;
 
     [Header("Player Stats")]
     public float upThrust;
@@ -138,8 +140,10 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         CameraShake.instance.ShakeCamera(3f, 0.75f);
-        deathParticles.Play();
+        Instantiate(deathParticles, transform.position, Quaternion.identity);
         transform.DOScale(0, 1f);
+        leftTrail.SetActive(false);
+        rightTrail.SetActive(false);
         StartSlowMotion(2f);
     }
 
