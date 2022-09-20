@@ -26,7 +26,11 @@ public class PlayerController : MonoBehaviour
     public float turnThrust;
     public float maxSpeed;
     [Range(1, 10)] public float impactDamageSpeed;
+    public float slowMotionTimeScale;
     private int health = 5;
+
+    private float startTimeScale;
+    private float startFixedDeltaTime;
 
     [Header("Camera")]
     public CinemachineVirtualCamera vCam;
@@ -35,6 +39,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         vCam.m_Lens.OrthographicSize = 7.5f;
+        startTimeScale = Time.timeScale;
+        startFixedDeltaTime = Time.fixedDeltaTime;
     }
 
     private void Update()
@@ -98,6 +104,8 @@ public class PlayerController : MonoBehaviour
     {
         health -= damage;
 
+        StartSlowMotion(0.15f);
+
         CameraShake.instance.ShakeCamera(3f, 0.075f);
 
         if(health == 4)
@@ -142,5 +150,18 @@ public class PlayerController : MonoBehaviour
             Instantiate(impactParticles, contact.point, Quaternion.identity);
             TakeDamage(1);
         }
+    }
+
+    public void StartSlowMotion(float time)
+    {
+        Time.timeScale = slowMotionTimeScale;
+        Time.fixedDeltaTime = startFixedDeltaTime * slowMotionTimeScale;
+        Invoke("StopSlowMotion", time);
+    }
+
+    public void StopSlowMotion()
+    {
+        Time.timeScale = startTimeScale;
+        Time.fixedDeltaTime = startFixedDeltaTime;
     }
 }
