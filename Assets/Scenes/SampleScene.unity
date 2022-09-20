@@ -17604,6 +17604,7 @@ MonoBehaviour:
   turnThrust: 100
   maxSpeed: 10
   impactDamageSpeed: 8.5
+  slowMotionTimeScale: 0.5
   vCam: {fileID: 367778519}
   zoomSensitivity: 5
 --- !u!4 &1736521832
